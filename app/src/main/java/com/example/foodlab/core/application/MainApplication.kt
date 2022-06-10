@@ -1,0 +1,19 @@
+package com.example.foodlab.core.application
+
+import android.app.Application
+import android.content.Context
+import dagger.hilt.android.HiltAndroidApp
+
+@HiltAndroidApp
+class MainApplication: Application() {
+    init {
+        instance = this
+    }
+    companion object {
+        private var instance: MainApplication? = null
+
+        fun getApplicationContext(): Context {
+            return instance!!.applicationContext
+        }
+    }
+}
